@@ -24,7 +24,7 @@ public class Filme {
     private String nome;
 
     @Column(name = "NR_DURACAO")
-    private Duration duracao;
+    private int duracao;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "TP_CATEGORIA")
