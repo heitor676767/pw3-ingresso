@@ -2,6 +2,7 @@ package br.com.etechoracio.ingresso.service;
 
 import br.com.etechoracio.ingresso.dto.FilmeResponseDTO;
 import br.com.etechoracio.ingresso.entity.Filme;
+import br.com.etechoracio.ingresso.enums.SimNaoEnum;
 import br.com.etechoracio.ingresso.mapper.FilmeMapper;
 import br.com.etechoracio.ingresso.repository.FilmeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +20,10 @@ public class FilmeService {
 
     public List<FilmeResponseDTO> findAll(){
         var filmes = filmeRepository.findAll();
+        return filmeMapper.toResponseDTOList(filmes);
+    }
+    public List<FilmeResponseDTO> findEmCartaz() {
+        var filmes = filmeRepository.findByEmCartaz(SimNaoEnum.S);
         return filmeMapper.toResponseDTOList(filmes);
     }
 }

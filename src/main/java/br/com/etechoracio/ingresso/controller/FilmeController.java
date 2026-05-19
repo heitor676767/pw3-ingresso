@@ -22,4 +22,8 @@ public class FilmeController {
         return filmeService.findAll();
     }
 
+    @GetMapping("/em-cartaz")
+    public List<FilmeResponseDTO> findEmCartaz(){
+        return filmeService.findEmCartaz();
+    }
 }
